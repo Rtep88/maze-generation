@@ -14,6 +14,18 @@
   <main>
     <div id="mazeGrid"></div>
     <button id="generateButton" onclick="generateMaze()">Generate</button>
+    <div class="inputContainer">
+      <input type="range" min="2" id="xSize" oninput="changeSize()"></input>
+      <div>X</div>
+    </div>
+    <div class="inputContainer">
+      <input type="range" min="2" id="ySize" oninput="changeSize()"></input>
+      <div>Y</div>
+    </div>
+    <div class="inputContainer">
+      <input type="range" min="1" max="1000" id="speed"></input>
+      <div>Speed</div>
+    </div>
   </main>
   <script src="generator.js"></script>
 </body>

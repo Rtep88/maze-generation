@@ -1,36 +1,42 @@
+h1{
+    font-size: 4vh;
+}
+
+.inputContainer {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 #mazeGrid {
     font-size: 0;
     width: fit-content;
+    height: fit-content;
     display: grid;
-    border: 3px solid black;
+    border: 0.3vh solid black;
 }
 
 .mazeCell {
-    width: 20px;
-    height: 20px;
     margin: 0;
-    text-align: center;
-    font-size: 20px;
-    border: solid white 1px;
+    border: solid white min(0.1vh, 0.1vw);
 }
 
 .leftBorder {
-    border-left: solid black 1px;
+    border-left: solid black min(0.1vh, 0.1vw);
 }
 
 .rightBorder {
-    border-right: solid black 1px;
+    border-right: solid black min(0.1vh, 0.1vw);
 }
 
 .topBorder {
-    border-top: solid black 1px;
+    border-top: solid black min(0.1vh, 0.1vw);
 }
 
 .bottomBorder {
-    border-bottom: solid black 1px;
+    border-bottom: solid black min(0.1vh, 0.1vw);
 }
 
-#generationButton {
+#generateButton {
     margin: 10px;
-    font-size: 20px;
+    font-size: 2vh;
 }
