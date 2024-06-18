@@ -4,12 +4,18 @@ let breakGenerating = false;
 let countOfRunningGenerators = 0;
 const mazeElementArray = [];
 const mazeArray = [];
+let shouldInstantGenerate = false;
 
 let totalHeight = 0;
 
 function generateMap() {
     sizeX = document.getElementById('xSize').value;
     sizeY = document.getElementById('ySize').value;
+
+    //Logging what size now maze have
+    document.getElementById('xSizeDiv').innerText = 'X(' + sizeX + ')';
+    document.getElementById('ySizeDiv').innerText = 'Y(' + sizeY + ')';
+
     totalHeight = 0;
     const mazeGrid = document.getElementById('mazeGrid');
     mazeGrid.innerHTML = '';
@@ -42,6 +48,7 @@ function generateMap() {
 }
 
 async function generateMaze() {
+    generateMap();
     breakGenerating = true;
 
     //Waiting for generating to stop
@@ -78,8 +85,9 @@ async function generateMaze() {
         if (possibleDirections.length > 0) {
             if (possibleDirections.length > 1)
                 cellStack.push(currentPosition);
-
-            await new Promise(r => setTimeout(r, (Math.log2(1000) - Math.log2(speed.value)) * 30));
+            
+            if (!shouldInstantGenerate)
+                await new Promise(r => setTimeout(r, (Math.log2(1000) - Math.log2(speed.value)) * 30));
 
             let selectedDirection = Math.floor(Math.random() * possibleDirections.length);
 
@@ -117,6 +125,18 @@ async function generateMaze() {
     }
 
     countOfRunningGenerators--;
+    shouldInstantGenerate = false;
+
+    //Enabling generate button
+    document.getElementById('generateButton').disabled = false;
+}
+
+function instantGenerate()
+{
+    shouldInstantGenerate = true;
+    
+    if (countOfRunningGenerators == 0)
+        generateMaze();
 }
 
 async function changeSize() {
