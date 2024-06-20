@@ -1,10 +1,5 @@
-h1{
+h1 {
     font-size: 4vh;
-}
-
-.inputContainer {
-    display: flex;
-    flex-wrap: nowrap;
 }
 
 #mazeGrid {
@@ -39,4 +34,17 @@ h1{
 .controlButton {
     margin: 10px;
     font-size: 2vh;
+}
+
+.inputContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 2vh;
+    align-items: center;
+}
+
+.range {
+    width: 35vw;
+    height: 4vh;
+    cursor: pointer;
 }

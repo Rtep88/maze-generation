@@ -33,7 +33,7 @@ function generateMap() {
         for (let x = 0; x < sizeX; x++) {
             const mazeCell = document.createElement('div');
             mazeCell.id = 'cell' + '-x' + x + '-y' + y;
-            let size = 'min(' + (70 - 0.2 * sizeY) / sizeY + 'vh, ' + (70 - 0.2 * sizeX) / sizeX + 'vw)'
+            let size = 'min(' + (50 - 0.2 * sizeY) / sizeY + 'vh, ' + (70 - 0.2 * sizeX) / sizeX + 'vw)';
             mazeCell.style.width = size;
             mazeCell.style.height = size;
             mazeCell.classList.add('mazeCell', 'leftBorder', 'rightBorder', 'topBorder', 'bottomBorder');
